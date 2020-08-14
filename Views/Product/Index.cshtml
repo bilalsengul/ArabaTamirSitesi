@@ -1,0 +1,109 @@
+﻿@model IEnumerable<VTYSProje.Entity.Product>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="container p-5">
+        <hr />
+        <h2>Tamir Kayıtları</h2>
+        <hr />
+        <p>
+            @Html.ActionLink("Kayıt Oluştur", "Create", null, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>
+                    <p>Araç Resim</p>
+
+                </th>
+                <th>
+                    <p>Tür</p>
+                </th>
+                <th>
+                    <p>Marka/Model</p>
+                </th>
+                <th>
+                    <p>Tamir Sayısı</p>
+                </th>
+               
+                <th>
+                    <p>Tamir Durumu</p>
+                </th>
+
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (item.Image == null)
+                        {
+                            @Html.ActionLink("Resim Ekle", "Upload", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                        }
+                        else
+                        {
+
+
+                            <img width="70
+                         " src="/Theme/img/@item.Image" />
+
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
+                    </td>
+                 
+                    <td>
+                        @if (item.IsApproved == 1)
+                        {
+                            <label class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Tamamlandı</label>
+
+                        }
+                        else
+                        {
+                            <label class="badge badge-danger">
+                                <i class="fa fa-ban" aria-hidden="true"></i>Bekleniyor
+                            </label>
+                        }
+
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+
+                    </td>
+                  
+                </tr>
+
+            }
+          
+        </table>
+    </div>
+}
+else
+{
+
+    <div class="container p-5">
+        <h2>Hata</h2>
+        <div class="alert alert-danger" role="alert">
+            Lütfen Giriş Yapınız
+        </div>
+
+
+
+    </div>
+
+
+
+
+}

@@ -1,0 +1,105 @@
+﻿@using VTYSProje.Entity
+@model Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="product-details" class="container mb-5 mt-5">
+    <div class="  row">
+        <div class="col-md-6">
+            <img src="~/Theme/img/@Model.Image" alt="asdfg" class="img-fuild rounded w-100">
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>@Model.Name</h1>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12">
+                    
+                        @if (@Model.IsApproved == 1)
+                        {
+                            <span class="badge badge-primary"><i class="fa fa-check-circle" aria-hidden="true"></i>Tamamlandı</span>
+
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">
+                                <i class="fa fa-ban" aria-hidden="true"></i>Bekleniyor
+                            </span>
+                        }
+
+                   
+             
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <div id="description">
+                        @Model.Description
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <a href="/Comment/Create/@Model.Id"><i class="fa fa-commenting fa" aria-hidden="true"></i>İletişime Geç</a>
+                </div>
+                <div id="write-review" class="col-md-4">
+                   
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h4 id="product-price">@Model.Price<i class="fa fa-try" aria-hidden="true"></i></h4>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 p-3 ">
+            <div class="bd-example bd-example-tabs">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active show" id="nav-comment-tab" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-home" aria-selected="true"> Yetkili Servis İletişim</a>
+                        <a class="nav-item nav-link " id="nav-description-tab" data-toggle="tab" href="#nav-description" role="tab" aria-controls="nav-desc" aria-selected="false">Tamir Açıklama</a>
+                        
+
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade active show container " id="nav-comment" role="tabpanel" aria-labelledby="nav-contact-tab">
+                       
+                        @if (ViewBag.Comments.Count == 0)
+                        {
+                            <h3>Bu Tamir Hakkında Sohbet Yok</h3>
+                        }
+                        else
+                        {
+                            foreach (var item in (List<Comment>)ViewBag.Comments)
+                            {
+                                <div class="bd-example p-3">
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <h5 class="mt-0">@item.Name @item.Surname</h5>
+                                            @item.Description
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        }
+                    </div>
+                    <div class="tab-pane fade " id="nav-description" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <p>@Model.Description</p>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

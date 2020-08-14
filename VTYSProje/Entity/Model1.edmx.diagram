@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2667e7d6b29426f99266cd564db13ad" Name="Diagram1">
+        <EntityTypeShape EntityType="VTYSProjeModel.Brand" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Category" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Category1" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.City" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Comment" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Country" Width="1.5" PointX="3" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.District" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Order" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.OrderLİne" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Producer" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.Product" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VTYSProjeModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Category_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Producer_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Category_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Product_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Order_City" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Producer_City" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Comment_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Order_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Producer_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Order_District" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_Producer_District" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_OrderLİne_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="VTYSProjeModel.FK_OrderLİne_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

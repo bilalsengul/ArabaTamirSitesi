@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VTYSProje.Identity.ApplicationRole>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container p-5">
+    <h2>Yönetici Rol Düzenleme</h2>
+    <hr />
+   
+    <hr />
+    <table class="table table-hover table-bordered ">
+
+        <tr>
+            <th>
+               <p>Kullanım Şekli</p>
+            </th>
+            <th>
+
+                <p>Yönetim Rolü</p>
+            </th>
+            <th style="width: 140px;"></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
